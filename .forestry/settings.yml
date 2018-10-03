@@ -3,15 +3,25 @@ new_page_extension: html
 auto_deploy: true
 admin_path: ''
 webhook_url: 
-collections:
-  _projects:
-    default_front_matter_template: project
-  _people:
-    default_front_matter_template: person
-  _posts:
-    default_front_matter_template: post
-upload_dir: uploads
-public_path: "/uploads"
+sections:
+- type: jekyll-posts
+  label: Posts
+  create: all
+- type: directory
+  path: _people
+  label: People
+  create: all
+  match: "**/*"
+- type: directory
+  path: _projects
+  label: Projects
+  create: all
+  match: "**/*"
+- type: jekyll-pages
+  label: Pages
+  create: all
+upload_dir: ''
+public_path: ''
 front_matter_path: ''
 use_front_matter_path: false
-file_template: ":year:/:month:/:day:/:filename:"
+file_template: ":filename:"
